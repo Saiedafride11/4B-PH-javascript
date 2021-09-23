@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 onclick="alert('Hello aaaaaaafride')">Hello</h1>
+    <button onclick="console.log('Hello aaaaaaafride')">Click me</button>
+    <button onclick="document.body.style.backgroundColor = 'yellow'">Yellow</button>
+    <button onclick="makeRed()">Red</button>
+    <button id="make-blue">Blue</button>
+    <button id="make-green">Green</button>
+    <button id="make-goldenRod">GoldenRod</button>
+    <button id="make-grey">Grey</button>
+    <button id="make-black">Black</button>
+
+    <p id="paragraph">Plese Chane Me</p>
+    <button onclick="textChange()">Change Text</button>
+    <button id="text-change">Change Text</button>
+
+
+    <input id="name-field" type="text">
+    <button id="update-name">Update-name</button>
+
+    <script>
+        //Red
+        function makeRed(){
+            document.body.style.backgroundColor = 'red'
+        }
+
+        // Blue
+        const blueButton = document.getElementById('make-blue');
+        blueButton.onclick = makeBlue;
+        function makeBlue(){
+            document.body.style.backgroundColor = 'blue';
+        }
+
+        //Green
+        const greenButton = document.getElementById('make-green');
+        greenButton.onclick= function(){
+            document.body.style.backgroundColor = 'green'
+        }
+
+
+        //GoldenRod
+        const goldenRodButton = document.getElementById('make-goldenRod');
+        goldenRodButton.addEventListener('click', makeGoldenRod)
+        
+        function makeGoldenRod(){
+            document.body.style.backgroundColor = 'goldenrod'
+        }
+
+
+        //Grey
+        const greyButton = document.getElementById('make-grey');
+        greyButton.addEventListener('click', function(){
+            document.body.style.backgroundColor = 'grey'
+        })
+
+        //black
+        document.getElementById('make-black').addEventListener('click', function(){
+            document.body.style.backgroundColor = 'black';
+        })
+
+        //textChange
+        function textChange(){
+            document.getElementById('paragraph').innerText = 'Hello, How Are You?'
+        }
+
+        const textChange1 = document.getElementById('text-change');
+        textChange1.addEventListener('click', function(){
+            document.getElementById('paragraph').innerText = 'Hello, How Are You? Yes, i am fine'
+        })
+
+
+        // update-name
+        const updateName = document.getElementById('update-name');
+        updateName.addEventListener('click', function(){
+            const nameField = document.getElementById('name-field');
+            const p = document.getElementById('paragraph');
+            p.innerText = nameField.value;
+            nameField.value = '';
+        })
+
+    </script>
+</body>
+</html>

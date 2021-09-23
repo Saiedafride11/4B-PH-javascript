@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .post{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="album">
+
+    </div>
+
+    <button onclick="loadAlbum()">Album</button>
+
+    <script>
+    //    function loadAlbum(){
+    //         fetch('https://jsonplaceholder.typicode.com/albums')
+    //         .then(response => response.json())
+    //         .then(json => displayAlbum(json))
+    //    }
+
+    //     function displayAlbum(albums){
+    //         const albumContainer = document.getElementById('album')
+    //         for(const album of albums){
+    //             const p = document.createElement('p')
+    //             p.classList.add('post');
+    //             p.style.color = 'green';
+    //             p.innerHTML = `
+    //                 <strong>Title: </strong><h2>${album.title}</h2>
+    //             `
+    //             albumContainer.appendChild(p)
+    //         }
+    //     }
+
+
+
+
+
+
+       function loadAlbum(){
+            fetch('https://jsonplaceholder.typicode.com/albums')
+            .then(response => response.json())
+            .then(json => displayAlbum(json))
+       }
+
+        function displayAlbum(albums){
+            const albumContainer = document.getElementById('album')
+            for (let i = 0; i < albums.length; i++) {
+                const album = albums[i];
+                const p = document.createElement('p')
+                p.classList.add('post');
+                p.style.color = 'green';
+                p.innerHTML = `
+                    <strong>Title: </strong><h2>${album.title}</h2>
+                `
+                albumContainer.appendChild(p) 
+            }
+        }
+    </script>
+</body>
+</html>
